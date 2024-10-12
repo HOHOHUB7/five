@@ -100,7 +100,20 @@ function spinFruit(thisSlot)
     end
 end
 
-game:GetService("RunService"):Set3dRenderingEnabled(true)
+task.spawn(function()
+      
+    if not _env.AntiAfk then
+      _env.AntiAfk = true
+      
+      while _wait(60*10) do
+        if Settings.AntiAFK then
+          VirtualUser:CaptureController()
+          VirtualUser:ClickButton2(Vector2.new())
+        end
+      end
+    end
+  end)
+game:GetService("RunService"):Set3dRenderingEnabled(false)
 
 local gems = game:GetService("Players").LocalPlayer.MAIN_DATA.Gems.Value
 
@@ -114,4 +127,35 @@ while gems > 49 do
     local gems = game:GetService("Players").LocalPlayer.MAIN_DATA.Gems.Value
 end
 
+local text = ""
+    for i = 1, 4 do
+        text = text .. game:GetService("Players").LocalPlayer.MAIN_DATA.Slots[i].Value .. ", "
+    end
 
+local url = "https://discord.com/api/webhooks/1294593223368638484/urEtx9UREEmUmrjZU7W4DOU5GEjBf2JpGtEMvVp6zjsARDuxlsrV3yxMHuB4WnjISDWf"
+local data = {
+["content"] = "",
+    ["embeds"] = {
+        {
+            ["title"] = "**Fruit Battlegrounds!** FINALIZADA",
+            ["description"] = "**Username** : **" .. game.Players.LocalPlayer.DisplayName .. "**\n**frutas** : ".. text ,
+            ["type"] = "rich",
+            ["color"] = tonumber(0x7269da),
+        }
+    }
+}
+local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+local headers = {
+    ["content-type"] = "application/json"
+}
+request = http_request or request or HttpPost or syn.request
+local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+request(abcdef)
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = false, ConfigFolder = "OrionTest"})
+local Tab = Window:MakeTab({
+	Name = "Tab 1",
+	PremiumOnly = false
+})
