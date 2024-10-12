@@ -117,14 +117,31 @@ game:GetService("RunService"):Set3dRenderingEnabled(false)
 
 local gems = game:GetService("Players").LocalPlayer.MAIN_DATA.Gems.Value
 
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "MyOverlayGui"
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+-- Criação do TextLabel
+local textLabel = Instance.new("TextLabel")
+textLabel.Size = UDim2.new(1, 0, 1, 0) -- Tamanho que cobre toda a tela
+textLabel.Position = UDim2.new(0, 0, 0, 0) -- Posição no canto superior esquerdo
+textLabel.Text = "gemassssssssssssssss!" -- Texto a ser exibido
+textLabel.TextColor3 = Color3.fromRGB(255, 255, 255) -- Cor do texto (branco)
+textLabel.BackgroundTransparency = 1 -- Transparência do fundo (1 = transparente)
+textLabel.TextScaled = true -- Escala o texto automaticamente
+textLabel.TextAlignment = Enum.TextAlignment.Center -- Alinhamento centralizado
+textLabel.VerticalAlignment = Enum.VerticalAlignment.Center -- Alinhamento vertical centralizado
+textLabel.Parent = screenGui -- Adiciona o TextLabel ao ScreenGui
+
 while gems > 49 do
     local Heartbeat = game:GetService("RunService").Heartbeat
     Heartbeat:Wait()
     local theSlot = game:GetService("Players").LocalPlayer.MAIN_DATA.Slot.Value
-
+textLabel.Text = game:GetService("Players").LocalPlayer.MAIN_DATA.Gems.Value
+	local gems = game:GetService("Players").LocalPlayer.MAIN_DATA.Gems.Value
     spinFruit(theSlot)
     
-    local gems = game:GetService("Players").LocalPlayer.MAIN_DATA.Gems.Value
+    
 end
 
 local text = ""
