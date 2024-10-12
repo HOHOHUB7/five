@@ -1,5 +1,5 @@
 
-if game.PlaceId ~= "15860930970" then
+if game.PlaceId ~= 15860930970 then
     while true do
         
 
