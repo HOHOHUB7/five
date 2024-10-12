@@ -1,4 +1,5 @@
 repeat wait() until game:IsLoaded() and game.Players.LocalPlayer 
+wait(5)
 
 local codes = {
     "GLITTER780K",
