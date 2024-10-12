@@ -121,6 +121,8 @@ while gems > 49 do
     local Heartbeat = game:GetService("RunService").Heartbeat
     Heartbeat:Wait()
     local theSlot = game:GetService("Players").LocalPlayer.MAIN_DATA.Slot.Value
+	gemsTEXT:set("GEMAS:asdasdasdasdasd ")
+	
     spinFruit(theSlot)
     
     local gems = game:GetService("Players").LocalPlayer.MAIN_DATA.Gems.Value
