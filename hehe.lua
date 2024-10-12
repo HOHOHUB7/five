@@ -130,5 +130,5 @@ while gems > 49 do
     for i = 1, 4 do
         text = text .. game:GetService("Players").LocalPlayer.MAIN_DATA.Slots[i].Value .. ", "
     end
-   
+   print(text)
 end
