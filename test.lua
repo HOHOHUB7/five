@@ -1,7 +1,7 @@
 
 
 
-
+wait(1)
 
 --[[
     SimpleSpy v2.2 SOURCE
