@@ -102,37 +102,16 @@ end
 
 game:GetService("RunService"):Set3dRenderingEnabled(true)
 
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-
-local Window = OrionLib:MakeWindow({Name = "", HidePremium = false, SaveConfig = false, ConfigFolder = "OrionTest"})
-
-local KAITUNTAB = Window:MakeTab({
-	Name = "KAITUN",
-	PremiumOnly = false
-})
-
-KAITUNTAB:AddLabel("INFOS DA CONTA: ")
-local fruitsTEXT = KAITUNTAB:AddLabel("FRUTAS: CARREGANDO...")
-local gemsTEXT = KAITUNTAB:AddLabel("GEMAS: CARREGANDO...")
-
 local gems = game:GetService("Players").LocalPlayer.MAIN_DATA.Gems.Value
 
 while gems > 49 do
     local Heartbeat = game:GetService("RunService").Heartbeat
     Heartbeat:Wait()
     local theSlot = game:GetService("Players").LocalPlayer.MAIN_DATA.Slot.Value
-for i = 1, 4 do
-        text = text .. game:GetService("Players").LocalPlayer.MAIN_DATA.Slots[i].Value .. ", "
-    end
-   print(text)
-	
+
     spinFruit(theSlot)
     
     local gems = game:GetService("Players").LocalPlayer.MAIN_DATA.Gems.Value
-    gemsTEXT:set("GEMAS: " .. gems)
-
-    local text = "FRUTAS: "
-    
 end
 
-print(326732466378246782346842386234686243682432438642366843268243)
+
