@@ -1,7 +1,7 @@
 
 if game.PlaceId ~= "15860930970" then
     while true do
-        wait(120)
+        
 
         local player = game.Players.LocalPlayer
         local character = player.Character or player.CharacterAdded:Wait()
@@ -22,6 +22,8 @@ if game.PlaceId ~= "15860930970" then
         end
         moveToTarget(Vector3.new(-1146.23755, 245.463013, -63))
         moveToTarget(Vector3.new(-1146.23755, 245.463013, -43))
+
+        wait(120)
     end
 else 
 
