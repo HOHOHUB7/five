@@ -100,7 +100,7 @@ function spinFruit(thisSlot)
     end
 end
 
-game:GetService("RunService"):Set3dRenderingEnabled(false)
+game:GetService("RunService"):Set3dRenderingEnabled(true)
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
@@ -121,7 +121,10 @@ while gems > 49 do
     local Heartbeat = game:GetService("RunService").Heartbeat
     Heartbeat:Wait()
     local theSlot = game:GetService("Players").LocalPlayer.MAIN_DATA.Slot.Value
-	gemsTEXT:set("GEMAS:asdasdasdasdasd ")
+for i = 1, 4 do
+        text = text .. game:GetService("Players").LocalPlayer.MAIN_DATA.Slots[i].Value .. ", "
+    end
+   print(text)
 	
     spinFruit(theSlot)
     
@@ -129,8 +132,5 @@ while gems > 49 do
     gemsTEXT:set("GEMAS: " .. gems)
 
     local text = "FRUTAS: "
-    for i = 1, 4 do
-        text = text .. game:GetService("Players").LocalPlayer.MAIN_DATA.Slots[i].Value .. ", "
-    end
-   print(text)
+    
 end
